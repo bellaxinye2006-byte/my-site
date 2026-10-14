@@ -8,7 +8,6 @@ if (header) {
 
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="contact.html">Contact</a>
                 <a href="project.html">Projects</a>
                 <a href="quotes.html">Quotes</a>
             </div>
