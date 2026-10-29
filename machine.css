@@ -79,3 +79,20 @@ footer {
     background: #fff;
     border-top: 1px solid #eee;
 }
+/* machine.css 末尾追加这一段 */
+@media (max-width: 768px) {
+  .machine-box {
+    width: 95% !important;
+    padding: 18px !important;
+  }
+  .machine-box button {
+    width: 100%;
+    padding:14px;
+    font-size:18px;
+  }
+}
+@media (max-width:480px){
+  .machine-box{
+    padding:12px !important;
+  }
+}

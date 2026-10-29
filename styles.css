@@ -17,16 +17,21 @@ body {
 /* 统一黑导航栏 */
 nav {
     background: #111; /* 纯黑导航 */
-    padding: 12px 40px;
+    padding: 12px clamp(16px, 4vw, 40px);
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: clamp(16px, 2vw, 24px);
 }
 nav ul {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: clamp(16px, 2vw, 24px);
     list-style: none;
+}
+nav .brand {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
 }
 nav .logo {
     color: #fff;
@@ -36,7 +41,8 @@ nav .logo {
 nav a {
     color: #ccc;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 500;
 }
 nav a:hover {
     color: #fff;
@@ -45,6 +51,45 @@ nav a.active {
     color: #fff;
     border-bottom: 2px solid #fff;
     padding-bottom: 4px;
+}
+
+.page-main {
+    flex: 1;
+    display: flex;
+}
+.hero.card {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(24px, 4vw, 56px);
+    width: min(1400px, 96%);
+    min-height: 65vh;
+    margin: auto;
+    padding: clamp(24px, 5vw, 64px);
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+.hero-visual {
+    min-width: 0;
+}
+.hero-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 75vh;
+    object-fit: contain;
+}
+@media (max-width: 700px) {
+    .hero.card {
+        grid-template-columns: minmax(0, 1fr);
+        min-height: 0;
+        margin: 24px auto;
+    }
+
+    .hero-visual img {
+        max-height: none;
+    }
 }
 
 /* 统一白卡片内容容器 */
@@ -83,4 +128,96 @@ footer {
     color: #999;
     background: #fff;
     border-top: 1px solid #eee;
+}
+/* ========== 响应式：手机、平板 【max-width:768px】 ========== */
+@media (max-width: 768px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 16px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* 导航栏：横向变纵向堆叠 */
+  nav {
+    width: 100%;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    align-items: center;
+  }
+  nav li {
+    width: 100%;
+    text-align: center;
+  }
+  nav a {
+    display: block;
+    padding: 10px;
+  }
+
+  /* 标题缩放 */
+  h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+  h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  /* 所有图片自动适配屏幕，不会溢出 */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* machine交互盒子适配 */
+  .machine-box {
+    width: 100% !important;
+    padding: 20px 16px !important;
+    margin: 20px 0 !important;
+  }
+
+  /* 按钮适配手机触摸，变大一点好点 */
+  button {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  /* 容器板块 */
+  .container {
+    width: 100%;
+    padding: 0;
+  }
+
+  /* 页脚居中 */
+  footer {
+    text-align: center;
+    padding: 20px 0;
+  }
+}
+
+/* ========== 小手机 【max-width:480px】 进一步微调 ========== */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  body {
+    padding: 12px;
+  }
 }
