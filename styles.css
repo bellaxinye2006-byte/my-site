@@ -28,10 +28,33 @@ nav ul {
     gap: clamp(16px, 2vw, 24px);
     list-style: none;
 }
+nav.topbar {
+    justify-content: space-between;
+}
 nav .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     color: #fff;
     font-size: 18px;
     font-weight: 700;
+    white-space: nowrap;
+}
+nav .nav-links {
+    flex: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-width: 0;
+}
+nav .nav-links a {
+    white-space: nowrap;
+}
+nav .nav-button {
+    padding: 9px 16px;
+    border: 1px solid #777;
+    border-radius: 999px;
+    color: #fff;
+    white-space: nowrap;
 }
 nav .logo {
     color: #fff;
@@ -73,12 +96,35 @@ nav a.active {
 .hero-visual {
     min-width: 0;
 }
+.hero-copy {
+    max-width: 540px;
+}
+.hero-copy .eyebrow {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: #666;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.hero-copy h1 {
+    margin-bottom: 18px;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.05;
+}
+.hero-copy p {
+    color: #666;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.7;
+}
 .hero-visual img {
     display: block;
     width: 100%;
     height: auto;
     max-height: 75vh;
     object-fit: contain;
+    border-radius: 14px;
 }
 @media (max-width: 700px) {
     .hero.card {
@@ -137,28 +183,37 @@ footer {
 
   body {
     margin: 0;
-    padding: 16px;
+    padding: 0;
     font-size: 16px;
     line-height: 1.6;
   }
 
-  /* 导航栏：横向变纵向堆叠 */
   nav {
     width: 100%;
+    flex-wrap: wrap;
   }
   nav ul {
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 16px;
     padding: 0;
     align-items: center;
   }
   nav li {
-    width: 100%;
+    width: auto;
     text-align: center;
   }
   nav a {
     display: block;
-    padding: 10px;
+    padding: 8px 4px;
+  }
+  nav.topbar .nav-links {
+    order: 3;
+    flex: 1 0 100%;
+    justify-content: center;
+  }
+  nav.topbar .nav-button {
+    margin-left: auto;
   }
 
   /* 标题缩放 */
@@ -218,6 +273,15 @@ footer {
     font-size: 1.3rem;
   }
   body {
-    padding: 12px;
+    padding: 0;
+  }
+  nav {
+    padding: 10px 14px;
+  }
+  nav ul {
+    gap: 6px 12px;
+  }
+  nav a {
+    font-size: 14px;
   }
 }

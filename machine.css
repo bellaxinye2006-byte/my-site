@@ -3,96 +3,276 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: #f7f7f7;
-    color: #222;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    color: #20283a;
+    background:
+        radial-gradient(ellipse at 12% 72%, rgba(196, 220, 255, 0.28), transparent 34%),
+        #f5f7fb;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
-nav {
-    background: #111;
-    padding: 12px 40px;
+
+.machine-main {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(340px, 0.8fr);
+    align-items: center;
+    gap: clamp(48px, 8vw, 112px);
+    width: min(1120px, calc(100% - 64px));
+    flex: 1;
+    margin: 0 auto;
+    padding: 64px 0;
+}
+
+.machine-intro {
+    max-width: 500px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 24px;
+    color: #5368d8;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #6177f5;
+    box-shadow: 0 0 0 5px rgba(97, 119, 245, 0.12);
+}
+
+.machine-intro h1 {
+    margin-bottom: 22px;
+    color: #1d2638;
+    font-size: clamp(46px, 6vw, 76px);
+    font-weight: 750;
+    letter-spacing: -0.055em;
+    line-height: 1.04;
+}
+
+.intro-copy {
+    max-width: 430px;
+    color: #687286;
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+.reset-note {
     display: flex;
     align-items: center;
-    gap: 24px;
-}
-nav .logo {
-    color: #fff;
-    font-weight: 700;
-    margin-right: 12px;
-}
-nav a {
-    color: #ccc;
-    text-decoration: none;
+    gap: 16px;
+    margin-top: 40px;
+    color: #687286;
     font-size: 14px;
+    line-height: 1.65;
 }
-nav a.active {
-    color: #fff;
-    border-bottom: 2px solid #fff;
-    padding-bottom: 4px;
-}
-.container {
-    flex: 1;
-    width: 900px;
-    max-width: 92%;
-    margin: 40px auto;
+
+.reset-number {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    place-items: center;
+    border: 1px solid #dfe5f1;
+    border-radius: 14px;
     background: #fff;
-    padding: 60px 40px;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    text-align: center;
-}
-h1 {
-    font-size: 32px;
-    margin-bottom: 24px;
-}
-p {
-    font-size: 20px;
-    margin-bottom: 30px;
-}
-#countNum {
-    font-weight: bold;
-    color: #222;
-    font-size: 28px;
-}
-#countBtn {
-    padding: 14px 40px;
+    color: #5268d8;
     font-size: 17px;
-    border: none;
-    background: #111;
-    color: #fff;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: 0.25s;
+    font-weight: 700;
 }
-#countBtn:hover {
-    background: #333;
-    transform: translateY(-2px);
+
+.reset-note strong {
+    color: #30394c;
+    font-size: 15px;
 }
-footer {
+
+.counter-panel {
+    padding: clamp(28px, 4vw, 48px);
+    border: 1px solid rgba(222, 228, 240, 0.8);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 24px 70px rgba(35, 51, 91, 0.1);
+}
+
+.panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.panel-label {
+    color: #667187;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.live-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: #eef8f3;
+    color: #32815d;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.live-status span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #49b77e;
+}
+
+.count-display {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 12px;
+    margin: 48px 0 8px;
+    color: #202a42;
+}
+
+#countNum {
+    font-size: clamp(100px, 15vw, 156px);
+    font-weight: 750;
+    letter-spacing: -0.08em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.count-unit {
+    color: #8a94a8;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.counter-caption {
+    margin-bottom: 30px;
+    color: #7a8497;
+    font-size: 15px;
     text-align: center;
-    padding: 20px;
-    font-size: 13px;
-    color: #999;
-    background: #fff;
-    border-top: 1px solid #eee;
 }
-/* machine.css 末尾追加这一段 */
-@media (max-width: 768px) {
-  .machine-box {
-    width: 95% !important;
-    padding: 18px !important;
-  }
-  .machine-box button {
+
+#countBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
     width: 100%;
-    padding:14px;
-    font-size:18px;
-  }
+    min-height: 60px;
+    border: 0;
+    border-radius: 16px;
+    background: #5369df;
+    box-shadow: 0 10px 22px rgba(83, 105, 223, 0.24);
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 650;
+    transition: background 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
-@media (max-width:480px){
-  .machine-box{
-    padding:12px !important;
-  }
+
+#countBtn:hover {
+    transform: translateY(-2px);
+    background: #4359cf;
+    box-shadow: 0 14px 26px rgba(83, 105, 223, 0.3);
+}
+
+#countBtn:active {
+    transform: translateY(0);
+}
+
+#countBtn:focus-visible {
+    outline: 3px solid #aeb9ff;
+    outline-offset: 3px;
+}
+
+.button-plus {
+    display: grid;
+    width: 25px;
+    height: 25px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.counter-hint {
+    margin-top: 18px;
+    color: #98a1b1;
+    font-size: 12px;
+    text-align: center;
+}
+
+footer {
+    padding: 20px 24px;
+    border-top: 1px solid #e8ebf1;
+    color: #8992a2;
+    font-size: 13px;
+    text-align: center;
+}
+
+@media (max-width: 760px) {
+    .machine-main {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 36px;
+        width: min(560px, calc(100% - 40px));
+        padding: 52px 0;
+    }
+
+    .machine-intro {
+        max-width: none;
+        text-align: center;
+    }
+
+    .machine-intro h1 {
+        font-size: clamp(42px, 10vw, 64px);
+    }
+
+    .intro-copy {
+        margin: 0 auto;
+    }
+
+    .reset-note {
+        justify-content: center;
+        margin-top: 26px;
+        text-align: left;
+    }
+
+    .counter-panel {
+        padding: 28px 24px;
+        border-radius: 24px;
+    }
+
+    .count-display {
+        margin-top: 38px;
+    }
+
+    #countNum {
+        font-size: clamp(96px, 24vw, 136px);
+    }
+}
+
+@media (max-width: 380px) {
+    .machine-main {
+        width: calc(100% - 28px);
+        padding: 40px 0;
+    }
+
+    .counter-panel {
+        padding: 24px 18px;
+    }
 }
